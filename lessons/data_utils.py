@@ -42,3 +42,14 @@ def columnar(row_table: list[dict[str, str]]) -> dict[str, list[str]]:
         result[column] = column_values(row_table, column)
 
     return result
+
+def head(column_table: dict[str, list[str]], N: int) -> dict[str, list[str]]:
+    return_table: dict[str, list[str]] = {}
+    for key in column_table:
+        N_list: list[str] = []
+        i: int = 0
+        while i < N:
+            N_list.append(column_table[key][i])
+            i += 1
+        return_table[key] = N_list
+    return return_table
